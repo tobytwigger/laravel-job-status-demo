@@ -1,0 +1,3 @@
+[submodule "repos/laravel-job-status"]
+	path = repos/laravel-job-status
+	url = git@github.com:tobytwigger/laravel-job-status
