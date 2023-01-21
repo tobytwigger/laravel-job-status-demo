@@ -16,7 +16,7 @@ class BaseJob implements ShouldQueue
 
     protected array $tags;
 
-    private bool $fail;
+    protected bool $fail = false;
 
     public $tries = 3;
 
@@ -48,7 +48,6 @@ class BaseJob implements ShouldQueue
      */
     public function handle()
     {
-        dd($this->fail);
         if($this->fail) {
             throw new \Exception('Something went wrong');
         }
