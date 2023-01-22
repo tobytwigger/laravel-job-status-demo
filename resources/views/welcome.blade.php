@@ -49,51 +49,104 @@
                 <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div>
-                            <form method="post" action="/make-job" class="rendered-form">
-                                {{$errors}}
+                            <form method="post" action="/make-job">
                                 @csrf
-                                <div class="formbuilder-select form-group field-job">
-                                    <label for="job" class="formbuilder-select-label">Job Type
-                                        <br><span class="tooltip-element" tooltip="Select the action you want to carry out"></span></label>
-                                    <select class="form-control" name="job" id="job">
-                                        <option value="email" selected="true" id="job-0">Send an Email</option>
-                                        <option value="report" id="job-1">Write a Report</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" name="tag[0][key]" value="email" access="false" id="tag[0][key]">
-                                <div class="formbuilder-text form-group field-tag[0][value]">
-                                    <label for="tag[0][value]" class="formbuilder-text-label">Email Address
-                                        <br><span class="tooltip-element" tooltip="The email address to send the email to"></span></label>
-                                    <input type="text" class="form-control" name="tag[0][value]" access="false" id="tag[0][value]" title="The email address to send the email to">
-                                </div>
-                                <div class="formbuilder-number form-group field-delay">
-                                    <label for="delay" class="formbuilder-number-label">Delay<span class="tooltip-element" tooltip="How long to queue before running the job"></span></label>
-                                    <input type="number" class="form-control" name="delay" access="false" min="0" max="200" step="1" id="delay" title="How long to queue before running the job">
-                                </div>
-                                <div class="formbuilder-number form-group field-sleep">
-                                    <label for="sleep" class="formbuilder-number-label">Sleep<span class="tooltip-element" tooltip="How long should the job take to execute"></span></label>
-                                    <input type="number" class="form-control" name="sleep" access="false" min="0" max="200" step="1" id="sleep" title="How long should the job take to execute">
-                                </div>
-
-                                <div class="formbuilder-number form-group field-sleep">
-                                    <input class="form-check-input" type="checkbox" value="1" id="fail" name="fail">
-                                    <label class="form-check-label" for="fail">Fail</label>
-                                </div>
-                                <div class="formbuilder-number form-group field-sleep">
-                                    <input class="form-check-input" type="checkbox" value="1" id="cancel" name="cancel">
-                                    <label class="form-check-label" for="cancel">Cancel</label>
-                                </div>
-                                <div class="formbuilder-number form-group field-sleep">
-                                    <input class="form-check-input" type="checkbox" value="1" id="messages" name="messages">
-                                    <label class="form-check-label" for="messages">Send message updates?</label>
-                                </div>
-
-
-                                <button type="submit">Go</button>
+                                <input type="hidden" name="job" value="email" />
+                                <input type="hidden" name="tag[0][key]" value="email"/>
+                                <input type="hidden" name="tag[0][value]" value="tobytwigger@hotmail.co.uk"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Send an email to tobytwigger@hotmail.co.uk</button>
                             </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="email" />
+                                <input type="hidden" name="tag[0][key]" value="email"/>
+                                <input type="hidden" name="tag[0][value]" value="tobytwigger@gmail.co.uk"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Send an email to tobytwigger@gmail.co.uk</button>
+                            </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="email" />
+                                <input type="hidden" name="tag[0][key]" value="email"/>
+                                <input type="hidden" name="tag[0][value]" value="tobytwigger@hotmail.co.uk"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="fail" value="1"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Fail sending an email to tobytwigger@hotmail.co.uk</button>
+                            </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="email" />
+                                <input type="hidden" name="tag[0][key]" value="email"/>
+                                <input type="hidden" name="tag[0][value]" value="tobytwigger@hotmail.co.uk"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="cancel" value="1"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Cancel sending an email to tobytwigger@hotmail.co.uk</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="report" />
+                                <input type="hidden" name="tag[0][key]" value="timescale"/>
+                                <input type="hidden" name="tag[0][value]" value="weekly"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Generate a weekly report</button>
+                            </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="report" />
+                                <input type="hidden" name="tag[0][key]" value="timescale"/>
+                                <input type="hidden" name="tag[0][value]" value="daily"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Generate a daily report</button>
+                            </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="report" />
+                                <input type="hidden" name="tag[0][key]" value="timescale"/>
+                                <input type="hidden" name="tag[0][value]" value="weekly"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="fail" value="1"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Fail generating a weekly report</button>
+                            </form>
+                            <form method="post" action="/make-job">
+                                @csrf
+                                <input type="hidden" name="job" value="report" />
+                                <input type="hidden" name="tag[0][key]" value="timescale"/>
+                                <input type="hidden" name="tag[0][value]" value="weekly"/>
+                                <input type="hidden" name="tag[0][value]" value="tobytwigger@hotmail.co.uk"/>
+                                <input type="hidden" name="delay" value="4"/>
+                                <input type="hidden" name="sleep" value="3"/>
+                                <input type="hidden" name="cancel" value="1"/>
+                                <input type="hidden" name="messages" value="1"/>
+                                <button type="submit">Cancelled generating a weekly report</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
