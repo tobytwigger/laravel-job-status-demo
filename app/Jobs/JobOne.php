@@ -14,7 +14,7 @@ class JobOne extends BaseJob
 
     public function alias(): string
     {
-        return 'job-one';
+        return 'send-email';
     }
 
 }

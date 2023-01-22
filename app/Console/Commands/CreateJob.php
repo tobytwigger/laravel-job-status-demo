@@ -16,7 +16,11 @@ class CreateJob extends Command
     protected $signature = 'job:create
                             {--job= : The class of the job to show}
                             {--fail : If the job should fail}
-                            {--tag=* : Any tags to filter by. Separate the key and the value with a colon.}';
+                            {--cancel : If the job should be cancelled}
+                            {--messages : If the job should give message feedback}
+                            {--tag=* : Any tags to filter by. Separate the key and the value with a colon.}
+                            {--delay= : Delay the job by the given amount}
+                            {--sleep= : Sleep the job for the given number of seconds when running}';
     /**
      * The console command description.
      *
@@ -25,8 +29,8 @@ class CreateJob extends Command
     protected $description = 'Command description';
 
     private array $lookup = [
-        'one' => JobOne::class,
-        'two' => JobTwo::class
+        'email' => JobOne::class,
+        'report' => JobTwo::class
     ];
 
     /**
@@ -39,7 +43,19 @@ class CreateJob extends Command
         $job = $this->lookup[$this->option('job')];
         $tags = $this->getTags();
 
-        dispatch(new $job($tags, fail: $this->option('fail')));
+        $dispatch = dispatch(
+            new $job(
+                tags: $tags,
+                fail: $this->option('fail'),
+                sleep: $this->option('sleep'),
+                cancel: $this->option('cancel'),
+                messages: $this->option('messages')
+            )
+        );
+
+        if($this->option('delay')) {
+            $dispatch->delay($this->option('delay'));
+        }
 
         return Command::SUCCESS;
     }

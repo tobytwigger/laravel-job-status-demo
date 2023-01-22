@@ -1,0 +1,12 @@
+import { c as computed } from "./index.1c76a922.js";
+const useDarkProps = {
+  dark: {
+    type: Boolean,
+    default: null
+  }
+};
+function useDark(props, $q) {
+  return computed(() => props.dark === null ? $q.dark.isActive : props.dark);
+}
+export { useDark as a, useDarkProps as u };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlLWRhcmsuMWFkMDU5NTYuanMiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2Rhc2hib2FyZC9ub2RlX21vZHVsZXMvcXVhc2FyL3NyYy9jb21wb3NhYmxlcy9wcml2YXRlL3VzZS1kYXJrLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgY29uc3QgdXNlRGFya1Byb3BzID0ge1xuICBkYXJrOiB7XG4gICAgdHlwZTogQm9vbGVhbixcbiAgICBkZWZhdWx0OiBudWxsXG4gIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gKHByb3BzLCAkcSkge1xuICAvLyByZXR1cm4gaXNEYXJrXG4gIHJldHVybiBjb21wdXRlZCgoKSA9PiAoXG4gICAgcHJvcHMuZGFyayA9PT0gbnVsbFxuICAgICAgPyAkcS5kYXJrLmlzQWN0aXZlXG4gICAgICA6IHByb3BzLmRhcmtcbiAgKSlcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBRVksTUFBQyxlQUFlO0FBQUEsRUFDMUIsTUFBTTtBQUFBLElBQ0osTUFBTTtBQUFBLElBQ04sU0FBUztBQUFBLEVBQ1Y7QUFDSDtBQUVlLFNBQUEsUUFBVSxPQUFPLElBQUk7QUFFbEMsU0FBTyxTQUFTLE1BQ2QsTUFBTSxTQUFTLE9BQ1gsR0FBRyxLQUFLLFdBQ1IsTUFBTSxJQUNYO0FBQ0g7OyJ9

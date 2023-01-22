@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use JobStatus\Concerns\Trackable;
 
-class BaseJob implements ShouldQueue
+abstract class BaseJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Trackable;
 
@@ -20,15 +20,22 @@ class BaseJob implements ShouldQueue
 
     public $tries = 3;
 
+    public ?int $sleep;
+    public bool $messages;
+    public bool $cancel;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(array $tags, bool $fail = false)
+    public function __construct(array $tags, bool $fail = false, ?int $sleep = null, bool $messages = false, bool $cancel = false)
     {
         $this->tags = $tags;
         $this->fail = $fail;
+        $this->sleep = $sleep;
+        $this->messages = $messages;
+        $this->cancel = $cancel;
     }
 
     public function tags(): array
@@ -48,6 +55,28 @@ class BaseJob implements ShouldQueue
      */
     public function handle()
     {
+        if($this->sleep) {
+            $steps = 20;
+            $microseconds = $this->sleep * 1000000;
+            $pause = $microseconds / $steps;
+
+            for($i = 0; $i <= $steps; $i++) {
+                usleep($pause);
+                $this->status()->setPercentage(($i/$steps)*100);
+                if($this->messages) {
+                    $this->status()->message(sprintf('Step %u of %u in sending an email', $i + 1, $steps));
+                }
+            }
+        }
+
+        if($this->messages) {
+            $this->status()->successMessage('Email sent successfully');
+        }
+
+        if($this->cancel) {
+            $this->status()->cancel();
+            $this->checkForSignals();
+        }
         if($this->fail) {
             throw new \Exception('Something went wrong');
         }

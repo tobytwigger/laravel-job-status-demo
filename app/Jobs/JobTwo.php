@@ -14,7 +14,7 @@ class JobTwo extends BaseJob
 
     public function alias(): string
     {
-        return 'job-two';
+        return 'create-report';
     }
 
 }
