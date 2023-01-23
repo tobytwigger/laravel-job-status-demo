@@ -9,12 +9,16 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class JobOne extends BaseJob
+class CreateReport extends BaseJob
 {
 
     public function alias(): string
     {
-        return 'send-email';
+        return 'create-report';
     }
 
+    public function generateMessage(int $steps, int $iterator)
+    {
+        return sprintf('Step %u of %u in creating a report', $iterator + 1, $steps);
+    }
 }

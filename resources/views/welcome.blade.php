@@ -135,7 +135,6 @@
                                 <input type="hidden" name="job" value="report" />
                                 <input type="hidden" name="tag[0][key]" value="timescale"/>
                                 <input type="hidden" name="tag[0][value]" value="weekly"/>
-                                <input type="hidden" name="tag[0][value]" value="tobytwigger@hotmail.co.uk"/>
                                 <input type="hidden" name="delay" value="4"/>
                                 <input type="hidden" name="sleep" value="3"/>
                                 <input type="hidden" name="cancel" value="1"/>
@@ -143,6 +142,22 @@
                                 <button type="submit">Cancelled generating a weekly report</button>
                             </form>
 
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div>
+                            <form method="post" action="/make-job/random">
+                                @csrf
+                                <button type="submit">
+                                    Dispatch this many random jobs
+                                </button>
+                                <input type="number" name="quantity" value="10" max="50" min="1" step="1"/>
+
+                            </form>
                         </div>
                     </div>
                 </div>

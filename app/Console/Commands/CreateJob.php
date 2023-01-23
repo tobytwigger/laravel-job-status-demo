@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\JobOne;
-use App\Jobs\JobTwo;
+use App\Jobs\SendEmailToUser;
+use App\Jobs\CreateReport;
 use Illuminate\Console\Command;
 
 class CreateJob extends Command
@@ -28,9 +28,9 @@ class CreateJob extends Command
      */
     protected $description = 'Command description';
 
-    private array $lookup = [
-        'email' => JobOne::class,
-        'report' => JobTwo::class
+    public const CLASS_LOOKUP = [
+        'email' => SendEmailToUser::class,
+        'report' => CreateReport::class
     ];
 
     /**
@@ -40,7 +40,7 @@ class CreateJob extends Command
      */
     public function handle()
     {
-        $job = $this->lookup[$this->option('job')];
+        $job = self::CLASS_LOOKUP[$this->option('job')];
         $tags = $this->getTags();
 
         $dispatch = dispatch(

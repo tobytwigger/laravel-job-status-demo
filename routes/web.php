@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('/make-job', \App\Http\Controllers\CreateJobController::class);
+Route::post('/make-job/random', \App\Http\Controllers\CreateRandomJobsController::class);

@@ -63,16 +63,11 @@ abstract class BaseJob implements ShouldQueue
             for($i = 0; $i <= $steps; $i++) {
                 usleep($pause);
                 $this->status()->setPercentage(($i/$steps)*100);
-                if($this->messages) {
-                    $this->status()->message(sprintf('Step %u of %u in sending an email', $i + 1, $steps));
+                if($this->messages && $i % 4 === 0) {
+                    $this->status()->message($this->generateMessage($steps, $i));
                 }
             }
         }
-
-        if($this->messages) {
-            $this->status()->successMessage('Email sent successfully');
-        }
-
         if($this->cancel) {
             $this->status()->cancel();
             $this->checkForSignals();
@@ -80,5 +75,10 @@ abstract class BaseJob implements ShouldQueue
         if($this->fail) {
             throw new \Exception('Something went wrong');
         }
+        if($this->messages) {
+            $this->status()->successMessage('Email sent successfully');
+        }
     }
+
+    abstract public function generateMessage(int $steps, int $iterator);
 }
