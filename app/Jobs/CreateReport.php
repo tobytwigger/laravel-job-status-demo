@@ -17,8 +17,30 @@ class CreateReport extends BaseJob
         return 'create-report';
     }
 
+
     public function generateMessage(int $steps, int $iterator)
     {
-        return sprintf('Step %u of %u in creating a report', $iterator + 1, $steps);
+        return [
+            0 => 'Gathering together data',
+            4 => 'Filtering data to the selected timeframe',
+            8 => 'Analysing data',
+            12 => 'Saving graphs',
+            16 => 'Generating report layout',
+            20 => 'Saving report'
+        ][$iterator];
     }
+
+    public function finalMessage(): string
+    {
+        return 'Report created successfully';
+    }
+
+    public function exceptions(): array
+    {
+        return [
+            new \Exception('Could not find the right data for the report.'),
+            new \Exception('File storage full, could not save report.')
+        ];
+    }
+
 }

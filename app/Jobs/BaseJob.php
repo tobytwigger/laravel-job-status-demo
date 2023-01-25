@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Arr;
 use JobStatus\Concerns\Trackable;
 
 abstract class BaseJob implements ShouldQueue
@@ -48,11 +49,6 @@ abstract class BaseJob implements ShouldQueue
         return new static($tags);
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         if($this->sleep) {
@@ -64,21 +60,28 @@ abstract class BaseJob implements ShouldQueue
                 usleep($pause);
                 $this->status()->setPercentage(($i/$steps)*100);
                 if($this->messages && $i % 4 === 0) {
+                    $this->status()->successMessage('This job worked');
                     $this->status()->message($this->generateMessage($steps, $i));
                 }
             }
         }
+
         if($this->cancel) {
             $this->status()->cancel();
             $this->checkForSignals();
         }
         if($this->fail) {
-            throw new \Exception('Something went wrong');
+            throw Arr::random($this->exceptions());
         }
         if($this->messages) {
-            $this->status()->successMessage('Email sent successfully');
+            $this->status()->successMessage($this->finalMessage());
         }
     }
+
+    abstract public function finalMessage(): string;
+
+    abstract public function exceptions(): array;
+
 
     abstract public function generateMessage(int $steps, int $iterator);
 }

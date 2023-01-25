@@ -19,7 +19,27 @@ class SendEmailToUser extends BaseJob
 
     public function generateMessage(int $steps, int $iterator)
     {
-        return sprintf('Step %u of %u in sending an email', $iterator + 1, $steps);
+        return [
+            0 => 'Creating attachments',
+            4 => 'Crafting message',
+            8 => 'Analysing data',
+            12 => 'Optimising the email layout',
+            16 => 'Sending email',
+            20 => 'Marking read receipts'
+        ][$iterator];
+    }
+
+    public function finalMessage(): string
+    {
+        return 'Email sent successfully';
+    }
+
+    public function exceptions(): array
+    {
+        return [
+            new \Exception('The users mail server could not be found.'),
+            new \Exception('You have ran out of emails to send today. Please wait a few hours.')
+        ];
     }
 
 }
