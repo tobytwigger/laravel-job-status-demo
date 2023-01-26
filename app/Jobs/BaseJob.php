@@ -73,7 +73,7 @@ abstract class BaseJob implements ShouldQueue
             throw Arr::random(
                 $this->exceptions(
                     Arr::random([
-                        null,
+//                        null,
                         new \Exception('Lower level',
                             previous: new \Exception('Even lower level',
                                 previous: new \Exception('The lowest level')
