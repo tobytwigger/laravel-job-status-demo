@@ -60,7 +60,6 @@ abstract class BaseJob implements ShouldQueue
                 usleep($pause);
                 $this->status()->setPercentage(($i/$steps)*100);
                 if($this->messages && $i % 4 === 0) {
-                    $this->status()->successMessage('This job worked');
                     $this->status()->message($this->generateMessage($steps, $i));
                 }
             }
@@ -71,7 +70,18 @@ abstract class BaseJob implements ShouldQueue
             $this->checkForSignals();
         }
         if($this->fail) {
-            throw Arr::random($this->exceptions());
+            throw Arr::random(
+                $this->exceptions(
+                    Arr::random([
+                        null,
+                        new \Exception('Lower level',
+                            previous: new \Exception('Even lower level',
+                                previous: new \Exception('The lowest level')
+                            )
+                        )
+                    ])
+                )
+            );
         }
         if($this->messages) {
             $this->status()->successMessage($this->finalMessage());
@@ -80,7 +90,10 @@ abstract class BaseJob implements ShouldQueue
 
     abstract public function finalMessage(): string;
 
-    abstract public function exceptions(): array;
+    /**
+     * @return \Exception[]
+     */
+    abstract public function exceptions(?\Exception $baseException): array;
 
 
     abstract public function generateMessage(int $steps, int $iterator);

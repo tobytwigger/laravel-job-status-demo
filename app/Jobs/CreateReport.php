@@ -35,11 +35,11 @@ class CreateReport extends BaseJob
         return 'Report created successfully';
     }
 
-    public function exceptions(): array
+    public function exceptions(?\Exception $baseException): array
     {
         return [
-            new \Exception('Could not find the right data for the report.'),
-            new \Exception('File storage full, could not save report.')
+            new \Exception('Could not find the right data for the report.', previous: $baseException),
+            new \Exception('File storage full, could not save report.', previous: $baseException)
         ];
     }
 

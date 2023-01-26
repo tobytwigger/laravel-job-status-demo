@@ -34,11 +34,11 @@ class SendEmailToUser extends BaseJob
         return 'Email sent successfully';
     }
 
-    public function exceptions(): array
+    public function exceptions(?\Exception $baseException): array
     {
         return [
-            new \Exception('The users mail server could not be found.'),
-            new \Exception('You have ran out of emails to send today. Please wait a few hours.')
+            new \Exception('The users mail server could not be found.', previous: $baseException),
+            new \Exception('You have ran out of emails to send today. Please wait a few hours.', previous: $baseException)
         ];
     }
 
