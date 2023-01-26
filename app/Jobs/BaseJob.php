@@ -67,8 +67,8 @@ abstract class BaseJob implements ShouldQueue
 
         if($this->cancel) {
             $this->status()->cancel();
-            $this->checkForSignals();
         }
+        $this->checkForSignals();
         if($this->fail) {
             throw Arr::random(
                 $this->exceptions(
