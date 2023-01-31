@@ -20,7 +20,8 @@ class CreateJob extends Command
                             {--messages : If the job should give message feedback}
                             {--tag=* : Any tags to filter by. Separate the key and the value with a colon.}
                             {--delay= : Delay the job by the given amount}
-                            {--sleep= : Sleep the job for the given number of seconds when running}';
+                            {--sleep= : Sleep the job for the given number of seconds when running}
+                            {--count=1 : The number of jobs to create.}';
     /**
      * The console command description.
      *
@@ -43,15 +44,16 @@ class CreateJob extends Command
         $job = self::CLASS_LOOKUP[$this->option('job')];
         $tags = $this->getTags();
 
-        $dispatch = dispatch(
-            new $job(
-                tags: $tags,
-                fail: $this->option('fail'),
-                sleep: $this->option('sleep'),
-                cancel: $this->option('cancel'),
-                messages: $this->option('messages')
-            )
+        $generateJob = fn() => new $job(
+            tags: $tags,
+            fail: $this->option('fail'),
+            sleep: $this->option('sleep'),
+            cancel: $this->option('cancel'),
+            messages: $this->option('messages')
         );
+        for($i = 0; $i<$this->option('count'); $i++) {
+            $dispatch = dispatch($generateJob());
+        }
 
         if($this->option('delay')) {
             $dispatch->delay($this->option('delay'));

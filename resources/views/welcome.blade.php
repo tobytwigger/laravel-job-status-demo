@@ -160,10 +160,44 @@
                             </form>
                         </div>
                     </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div>
+                            <form method="post" action="/make-job/random">
+                                @csrf
+                                <input type="hidden" value="1" name="batch" />
+                                <input type="hidden" value="1" name="succeed_all" />
+
+                                <button type="submit">
+                                    Dispatch this many random jobs in a batch
+                                </button>
+                                <input type="number" name="quantity" value="10" max="50" min="1" step="1"/>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div>
+                            <form method="post" action="/make-job/random">
+                                @csrf
+                                <input type="hidden" value="1" name="batch" />
+                                <input type="hidden" value="1" name="only_fail_last" />
+                                <input type="hidden" value="0" name="succeed_all" />
+
+                                <button type="submit">
+                                    Dispatch this many random jobs in a batch unsuccessfully
+                                </button>
+                                <input type="number" name="quantity" value="10" max="50" min="1" step="1"/>
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
 
             </div>
         </div>
+
+    {{$errors}}
     </body>
 </html>
