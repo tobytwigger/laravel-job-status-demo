@@ -2,6 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\BaseJob;
+use App\Jobs\MyFirstJob;
+use App\Jobs\MySecondJob;
+use App\Jobs\MyThirdJob;
 use App\Jobs\SendEmailToUser;
 use App\Jobs\CreateReport;
 use Illuminate\Console\Command;
@@ -31,7 +35,10 @@ class CreateJob extends Command
 
     public const CLASS_LOOKUP = [
         'email' => SendEmailToUser::class,
-        'report' => CreateReport::class
+        'report' => CreateReport::class,
+        'one' => MyFirstJob::class,
+        'two' => MySecondJob::class,
+        'three' => MyThirdJob::class
     ];
 
     /**
@@ -44,13 +51,13 @@ class CreateJob extends Command
         $job = self::CLASS_LOOKUP[$this->option('job')];
         $tags = $this->getTags();
 
-        $generateJob = fn() => new $job(
+        $generateJob = fn() => in_array(BaseJob::class, class_parents($job)) ? new $job(
             tags: $tags,
             fail: $this->option('fail'),
             sleep: $this->option('sleep'),
             cancel: $this->option('cancel'),
             messages: $this->option('messages')
-        );
+        ) : new $job(sleep: $this->option('sleep'));
         for($i = 0; $i<$this->option('count'); $i++) {
             $dispatch = dispatch($generateJob());
         }

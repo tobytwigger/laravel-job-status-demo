@@ -11,7 +11,7 @@
         "laravel/horizon": "^5.13",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "twigger/laravel-job-status": "dev-batches"
+        "twigger/laravel-job-status": "dev-jobs-without-trackable"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
