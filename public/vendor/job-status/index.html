@@ -47,13 +47,14 @@
       href="/vendor/job-status/icons/favicon-16x16.png"
     />
     <link rel="icon" type="image/ico" href="/vendor/job-status/favicon.ico" />
-    <script type="module" crossorigin src="/vendor/job-status/assets/index.8710f952.js"></script>
+    <script type="module" crossorigin src="/vendor/job-status/assets/index.c9c99a36.js"></script>
     <link rel="stylesheet" href="/vendor/job-status/assets/index.5c10f4f3.css">
   </head>
   <body>
     <div id="q-app"></div>
   </body>
   <script>
-    window.JobStatusConfig = {!! json_encode($jobStatusVariables) !!}
+    window.JobStatusDashboardConfig = {!! json_encode($jobStatusVariables) !!}
   </script>
+  @jobapi
 </html>

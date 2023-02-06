@@ -12,6 +12,12 @@ use Illuminate\Queue\SerializesModels;
 class CreateReport extends BaseJob
 {
 
+    public function __construct(array $tags, bool $fail = false, ?int $sleep = null, bool $messages = false, bool $cancel = false)
+    {
+        parent::__construct($tags, $fail, $sleep, $messages, $cancel);
+        $this->onQueue('report-queue');
+    }
+
     public function alias(): string
     {
         return 'create-report';
