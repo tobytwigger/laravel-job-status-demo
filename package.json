@@ -16,5 +16,8 @@
         "vite": "^4.0.0",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.1"
+    },
+    "dependencies": {
+        "element-plus": "^2.2.30"
     }
 }
