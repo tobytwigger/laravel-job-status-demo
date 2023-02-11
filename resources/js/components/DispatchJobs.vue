@@ -7,16 +7,19 @@
                 :ellipsis="false"
                 @select="handleSelect"
             >
-                <el-menu-item index="home">
-                    <img style="height: 48px" src="../../images/logo-color-small.png" alt="Logo"/>
-                </el-menu-item>
-                <div class="flex-grow"/>
                 <el-menu-item index="demo">
+                    <img style="height: 48px" src="../../images/logo-color-small.png" alt="Logo"/>
+                    &nbsp;&nbsp;
                     Demo
+                </el-menu-item>
+                <el-menu-item index="dashboard">
+                    <a href="/job-status" target="_blank">Dashboard</a>
+                </el-menu-item>
+                <el-menu-item index="github">
+                    <a href="https://github.com/tobytwigger/laravel-job-status" target="_blank">Github</a>
                 </el-menu-item>
                 <el-menu-item index="documentation">
                     <a href="https://tobytwigger.github.io/laravel-job-status/" target="_blank">Documentation</a>
-
                 </el-menu-item>
             </el-menu>
         </el-header>
