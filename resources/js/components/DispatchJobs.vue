@@ -21,6 +21,9 @@
                 <el-menu-item index="documentation">
                     <a href="https://tobytwigger.github.io/laravel-job-status/" target="_blank">Documentation</a>
                 </el-menu-item>
+                <el-menu-item index="horizon">
+                    <a href="/horizon" target="_blank">Laravel Horizon</a>
+                </el-menu-item>
             </el-menu>
         </el-header>
 
