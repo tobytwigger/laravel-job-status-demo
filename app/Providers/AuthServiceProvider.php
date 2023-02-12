@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::before(function($ability) {
+        Gate::before(function($user = null, $ability) {
             if(in_array($ability, [
                 'viewJobStatus', 'viewHorizon'
             ])) {
