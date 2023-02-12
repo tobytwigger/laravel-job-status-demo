@@ -31,8 +31,6 @@ class CreateJobController extends Controller
             'batch_name' => 'sometimes|string',
         ]);
 
-        $this->throttle();
-
         $jobs = [];
         for($i=0;$i<$request->input('count', 1);$i++) {
             $jobClass = CreateJob::CLASS_LOOKUP[$request->input('job')] ?? Arr::random(CreateJob::CLASS_LOOKUP);
