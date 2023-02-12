@@ -47,10 +47,6 @@ task('horizon:publish', artisan('horizon:publish'));
 
 task('job:install', artisan('job:install'));
 
-task('permission:install', artisan('permission:install'));
-
-task('meilisearch:install', artisan('meilisearch:install'));
-
 task('assets:compile', function () {
     runLocally('npm install');
     runLocally('npm run build');
