@@ -51,12 +51,6 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "repos/laravel-job-status"
-        }
-    ],
     "extra": {
         "laravel": {
             "dont-discover": []
