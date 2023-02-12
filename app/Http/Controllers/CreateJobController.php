@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\Rule;
 
 class CreateJobController extends Controller
@@ -29,6 +30,8 @@ class CreateJobController extends Controller
             'batch' => 'sometimes|boolean',
             'batch_name' => 'sometimes|string',
         ]);
+
+        $this->throttle();
 
         $jobs = [];
         for($i=0;$i<$request->input('count', 1);$i++) {
@@ -59,4 +62,5 @@ class CreateJobController extends Controller
 
         return redirect()->to('/');
     }
+
 }
