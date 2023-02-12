@@ -32,7 +32,6 @@ task('deploy', [
     'assets:compile',
     'assets:upload',
     'artisan:migrate',
-    'permission:install',
     'artisan:storage:link',
     'artisan:cache:clear',
     'artisan:route:cache',
