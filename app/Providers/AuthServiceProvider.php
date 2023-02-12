@@ -26,13 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('viewJobStatus', function($user = null) {
-            return true;
+        Gate::before(function($ability) {
+            if(in_array($ability, [
+                'viewJobStatus', 'viewHorizon'
+            ])) {
+                return true;
+            }
         });
 
-        Gate::define('viewHorizon', function($user = null) {
-            return true;
-        });
-        //
     }
 }
