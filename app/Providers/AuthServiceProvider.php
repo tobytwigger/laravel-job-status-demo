@@ -30,6 +30,9 @@ class AuthServiceProvider extends ServiceProvider
             return true;
         });
 
+        Gate::define('viewHorizon', function($user = null) {
+            return true;
+        });
         //
     }
 }
