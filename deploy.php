@@ -28,6 +28,7 @@ task('deploy', [
     'deploy:prepare',
     'deploy:vendors',
     'horizon:publish',
+    'job:install',
     'assets:compile',
     'assets:upload',
     'artisan:migrate',
@@ -43,6 +44,8 @@ task('deploy', [
 ]);
 
 task('horizon:publish', artisan('horizon:publish'));
+
+task('job:install', artisan('job:install'));
 
 task('permission:install', artisan('permission:install'));
 
