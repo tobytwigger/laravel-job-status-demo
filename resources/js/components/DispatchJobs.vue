@@ -26,16 +26,6 @@
 
         <el-main>
             <el-row>
-                <el-col style="text-align: center;">
-                    <div>
-                        Use the settings below to dispatch some jobs.
-                    </div>
-                    <div>
-                        Head to <a style="text-decoration: underline; color: blue;" href="/job-status" target="_blank">/job-status</a> to see the dashboard.
-                    </div>
-                </el-col>
-            </el-row>
-            <el-row>
                 <el-col :xs="0" :sm="6"></el-col>
                 <el-col :xs="24" :sm="12">
                     <form ref="form" method="post" action="/make-job">
@@ -53,6 +43,16 @@
                             </span>
                         </span>
                         <el-card class="box-card">
+                            <el-row>
+                                <el-col style="text-align: center;">
+                                    <div>
+                                        Use the settings below to dispatch some jobs.
+                                    </div>
+                                    <div>
+                                        Head to <a style="text-decoration: underline; color: blue;" href="/job-status" target="_blank">/job-status</a> to see the dashboard.
+                                    </div>
+                                </el-col>
+                            </el-row>
                             <el-row>
                                 <el-col>
                                     <div>
