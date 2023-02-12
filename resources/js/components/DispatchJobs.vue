@@ -9,8 +9,9 @@
             >
                 <el-menu-item index="demo">
                     <img style="height: 48px" src="../../images/logo-color-small.png" alt="Logo"/>
-                    &nbsp;&nbsp;
-                    Demo
+                </el-menu-item>
+                <el-menu-item index="demo">
+                    <a href="/">Demo</a>
                 </el-menu-item>
                 <el-menu-item index="dashboard">
                     <a href="/job-status" target="_blank">Dashboard</a>
@@ -49,13 +50,17 @@
                             <el-row>
                                 <el-col style="text-align: center;">
                                     <div>
-                                        Use the settings below to dispatch some jobs.
+                                        Use the settings below to dispatch some test jobs.
                                     </div>
                                     <div>
-                                        Head to <a style="text-decoration: underline; color: blue;" href="/job-status" target="_blank">/job-status</a> to see the dashboard.
+                                        Head to <a style="text-decoration: underline; color: blue;" href="/job-status" target="_blank">/job-status</a> to see the dashboard provided by the package
+                                    </div>
+                                    <div>
+                                        This includes information about your job history. See full documentation <a style="text-decoration: underline; color: blue;" href="https://tobytwigger.github.io/laravel-job-status/">here</a>.
                                     </div>
                                 </el-col>
                             </el-row>
+                            <hr/>
                             <el-row>
                                 <el-col>
                                     <div>
