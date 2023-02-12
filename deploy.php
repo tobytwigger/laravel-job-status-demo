@@ -50,12 +50,11 @@ task('meilisearch:install', artisan('meilisearch:install'));
 
 task('assets:compile', function () {
     runLocally('npm install');
-    runLocally('npm run prod');
+    runLocally('npm run build');
 });
 
 task('assets:upload', function () {
-    upload('public/dist', '{{release_path}}/public');
-    upload('public/mix-manifest.json', '{{release_path}}/public');
+    upload('public/build', '{{release_path}}/public/build');
 });
 
 after('deploy:failed', 'deploy:unlock');
