@@ -52,7 +52,7 @@ task('assets:compile', function () {
 });
 
 task('assets:upload', function () {
-    upload('public', '{{release_path}}/public/build');
+    upload('public/build', '{{release_path}}/public');
 });
 
 after('deploy:failed', 'deploy:unlock');
