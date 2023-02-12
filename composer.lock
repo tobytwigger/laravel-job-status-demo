@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "273be261342b5ef364eed5e54a6e637e",
+    "content-hash": "d8d5f200a1b25113e13f204aa358a69e",
     "packages": [
         {
             "name": "andreaselia/analytics",
@@ -5966,10 +5966,16 @@
         {
             "name": "twigger/laravel-job-status",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tobytwigger/laravel-job-status.git",
+                "reference": "9d82be75a5168ab041b716c25b433cfb935ca54d"
+            },
             "dist": {
-                "type": "path",
-                "url": "repos/laravel-job-status",
-                "reference": "d1fc0eefb8545d071ffc19164b6ec6deeb8de39c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/9d82be75a5168ab041b716c25b433cfb935ca54d",
+                "reference": "9d82be75a5168ab041b716c25b433cfb935ca54d",
+                "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^3.5",
@@ -5985,6 +5991,7 @@
                 "phpstan/phpstan": "^1.8",
                 "phpunit/phpunit": "^9.4"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5994,24 +6001,14 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "JobStatus\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
-            },
-            "autoload-dev": {
+                ],
                 "psr-4": {
-                    "JobStatus\\Tests\\": "tests/",
-                    "JobStatus\\Database\\Factories\\": "database/factories/"
+                    "JobStatus\\": "src/"
                 }
             },
-            "scripts": {
-                "test": [
-                    "vendor/bin/paratest --colors --verbose --configuration phpunit.xml"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6035,19 +6032,18 @@
                 "vue"
             ],
             "support": {
+                "docs": "https://tobytwigger.github.io/laravel-job-status/",
                 "email": "tobytwigger1@gmail.com",
                 "issues": "https://github.com/tobytwigger/laravel-job-status/issues",
-                "docs": "https://tobytwigger.github.io/laravel-job-status/"
+                "source": "https://github.com/tobytwigger/laravel-job-status/tree/main"
             },
             "funding": [
                 {
-                    "type": "buymeacoffee",
-                    "url": "https://www.buymeacoffee.com/settings"
+                    "url": "https://www.buymeacoffee.com/settings",
+                    "type": "buymeacoffee"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2023-02-12T00:34:11+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
