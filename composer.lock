@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b09f47f2f7c7ab9d720746e3503e8962",
+    "content-hash": "c22686e1fbd169a545c6b48f6baff27a",
     "packages": [
         {
             "name": "andreaselia/analytics",
@@ -6031,16 +6031,16 @@
         },
         {
             "name": "twigger/laravel-job-status",
-            "version": "dev-main",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/laravel-job-status.git",
-                "reference": "9d82be75a5168ab041b716c25b433cfb935ca54d"
+                "reference": "0d7c33448c4776f0507ba877b8c3eebfa0520c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/9d82be75a5168ab041b716c25b433cfb935ca54d",
-                "reference": "9d82be75a5168ab041b716c25b433cfb935ca54d",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/0d7c33448c4776f0507ba877b8c3eebfa0520c90",
+                "reference": "0d7c33448c4776f0507ba877b8c3eebfa0520c90",
                 "shasum": ""
             },
             "require": {
@@ -6057,7 +6057,6 @@
                 "phpstan/phpstan": "^1.8",
                 "phpunit/phpunit": "^9.4"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6101,7 +6100,7 @@
                 "docs": "https://tobytwigger.github.io/laravel-job-status/",
                 "email": "tobytwigger1@gmail.com",
                 "issues": "https://github.com/tobytwigger/laravel-job-status/issues",
-                "source": "https://github.com/tobytwigger/laravel-job-status/tree/main"
+                "source": "https://github.com/tobytwigger/laravel-job-status/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -6109,7 +6108,7 @@
                     "type": "buymeacoffee"
                 }
             ],
-            "time": "2023-02-12T00:34:11+00:00"
+            "time": "2023-02-12T02:02:56+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -8852,9 +8851,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "twigger/laravel-job-status": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
