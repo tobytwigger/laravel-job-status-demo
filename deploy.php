@@ -8,7 +8,7 @@ require 'contrib/php-fpm.php';
 // Config
 
 set('keep_releases', 3);
-set('repository', 'git@github.com:tobytwigger/laravel-job-status');
+set('repository', 'git@github.com:tobytwigger/laravel-job-status-demo');
 
 add('shared_files', []);
 add('shared_dirs', []);
@@ -16,11 +16,11 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('job-tracker.gpsvault.co.uk')
+host('gpsvault.co.uk')
     ->setSshMultiplexing(true)
     ->set('remote_user', 'ubuntu')
     ->set('branch', 'main')
-    ->set('deploy_path', '/var/www/gpsvault');
+    ->set('deploy_path', '/var/www/job-status');
 
 // Tasks
 
