@@ -16,7 +16,7 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('gpsvault.co.uk')
+host('job-tracker.gpsvault.co.uk')
     ->setSshMultiplexing(true)
     ->set('remote_user', 'ubuntu')
     ->set('branch', 'main')
@@ -52,7 +52,7 @@ task('assets:compile', function () {
 });
 
 task('assets:upload', function () {
-    upload('public/build', '{{release_path}}/public/build');
+    upload('public', '{{release_path}}/public/build');
 });
 
 after('deploy:failed', 'deploy:unlock');
