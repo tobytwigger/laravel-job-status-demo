@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c22686e1fbd169a545c6b48f6baff27a",
+    "content-hash": "08c5db5ff1920b96595c1d0f75ed5aa1",
     "packages": [
         {
             "name": "andreaselia/analytics",
@@ -6031,16 +6031,16 @@
         },
         {
             "name": "twigger/laravel-job-status",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/laravel-job-status.git",
-                "reference": "0d7c33448c4776f0507ba877b8c3eebfa0520c90"
+                "reference": "fc817806be0274c82e44d82ee46cf59e39b7bc8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/0d7c33448c4776f0507ba877b8c3eebfa0520c90",
-                "reference": "0d7c33448c4776f0507ba877b8c3eebfa0520c90",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/fc817806be0274c82e44d82ee46cf59e39b7bc8c",
+                "reference": "fc817806be0274c82e44d82ee46cf59e39b7bc8c",
                 "shasum": ""
             },
             "require": {
@@ -6100,7 +6100,7 @@
                 "docs": "https://tobytwigger.github.io/laravel-job-status/",
                 "email": "tobytwigger1@gmail.com",
                 "issues": "https://github.com/tobytwigger/laravel-job-status/issues",
-                "source": "https://github.com/tobytwigger/laravel-job-status/tree/v1.1.0"
+                "source": "https://github.com/tobytwigger/laravel-job-status/tree/v1.1.1"
             },
             "funding": [
                 {
@@ -6108,7 +6108,7 @@
                     "type": "buymeacoffee"
                 }
             ],
-            "time": "2023-02-12T02:02:56+00:00"
+            "time": "2023-02-12T03:17:25+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
