@@ -36,9 +36,9 @@ class CreateJob extends Command
     public const CLASS_LOOKUP = [
         'email' => SendEmailToUser::class,
         'report' => CreateReport::class,
-//        'one' => MyFirstJob::class,
-//        'two' => MySecondJob::class,
-//        'three' => MyThirdJob::class
+        'one' => MyFirstJob::class,
+        'two' => MySecondJob::class,
+        'three' => MyThirdJob::class
     ];
 
     /**
