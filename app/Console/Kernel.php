@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('job-status:clear --preserve=12')->everyFifteenMinutes();
         // $schedule->command('inspire')->hourly();
     }
 
