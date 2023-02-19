@@ -55,6 +55,10 @@ task('assets:upload', function () {
     upload('public/build', '{{release_path}}/public');
 });
 
+task('supervisor:restart', function() {
+    run('sudo supervisorctl restart all');
+});
+
 after('deploy:failed', 'deploy:unlock');
 
 // Not currently working, as they don't change their release reference
