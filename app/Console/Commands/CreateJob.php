@@ -8,6 +8,7 @@ use App\Jobs\MySecondJob;
 use App\Jobs\MyThirdJob;
 use App\Jobs\SendEmailToUser;
 use App\Jobs\CreateReport;
+use App\Jobs\UntraitedJob;
 use Illuminate\Console\Command;
 
 class CreateJob extends Command
@@ -36,6 +37,7 @@ class CreateJob extends Command
     public const CLASS_LOOKUP = [
         'email' => SendEmailToUser::class,
         'report' => CreateReport::class,
+        'untraited' => UntraitedJob::class,
         'one' => MyFirstJob::class,
         'two' => MySecondJob::class,
         'three' => MyThirdJob::class
