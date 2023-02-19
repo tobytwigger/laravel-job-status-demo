@@ -40,7 +40,7 @@ task('deploy', [
     'artisan:event:cache',
     'artisan:optimize',
     'deploy:publish',
-//    'supervisor:restart',
+    'supervisor:restart',
 ]);
 
 task('horizon:publish', artisan('horizon:publish'));
