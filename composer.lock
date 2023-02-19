@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "708ffa7595e7de3bb9c88f8c6f672d51",
+    "content-hash": "d6271dc6aa05e8d2e66c6cd95173ba92",
     "packages": [
         {
             "name": "andreaselia/analytics",
@@ -2230,16 +2230,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.12.2",
+            "version": "3.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "f6377c709d2275ed6feaf63e44be7a7162b0e77f"
+                "reference": "81e87e74dd5213795c7846d65089712d2dda90ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f6377c709d2275ed6feaf63e44be7a7162b0e77f",
-                "reference": "f6377c709d2275ed6feaf63e44be7a7162b0e77f",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/81e87e74dd5213795c7846d65089712d2dda90ce",
+                "reference": "81e87e74dd5213795c7846d65089712d2dda90ce",
                 "shasum": ""
             },
             "require": {
@@ -2301,7 +2301,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.12.2"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.12.3"
             },
             "funding": [
                 {
@@ -2317,7 +2317,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-19T12:02:19+00:00"
+            "time": "2023-02-18T15:32:41+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -6031,16 +6031,16 @@
         },
         {
             "name": "twigger/laravel-job-status",
-            "version": "v1.2.0",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/laravel-job-status.git",
-                "reference": "565d5786631421a1095cd84106b932bcc3e2126e"
+                "reference": "e5769b2d67e19394c035f5c2800dd47fcd206596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/565d5786631421a1095cd84106b932bcc3e2126e",
-                "reference": "565d5786631421a1095cd84106b932bcc3e2126e",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-job-status/zipball/e5769b2d67e19394c035f5c2800dd47fcd206596",
+                "reference": "e5769b2d67e19394c035f5c2800dd47fcd206596",
                 "shasum": ""
             },
             "require": {
@@ -6100,7 +6100,7 @@
                 "docs": "https://tobytwigger.github.io/laravel-job-status/",
                 "email": "tobytwigger1@gmail.com",
                 "issues": "https://github.com/tobytwigger/laravel-job-status/issues",
-                "source": "https://github.com/tobytwigger/laravel-job-status/tree/v1.2.0"
+                "source": "https://github.com/tobytwigger/laravel-job-status/tree/v1.2.2"
             },
             "funding": [
                 {
@@ -6108,7 +6108,7 @@
                     "type": "buymeacoffee"
                 }
             ],
-            "time": "2023-02-17T02:34:53+00:00"
+            "time": "2023-02-19T02:49:32+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

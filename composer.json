@@ -14,7 +14,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "predis/predis": "^1.1",
-        "twigger/laravel-job-status": "^1.2.0"
+        "twigger/laravel-job-status": "^1.2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -43,7 +43,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan job:install"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
