@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('throttle:20,1')->post('/make-job', \App\Http\Controllers\CreateJobController::class);
+Route::middleware('throttle:100,1')->post('/make-job', \App\Http\Controllers\CreateJobController::class);
