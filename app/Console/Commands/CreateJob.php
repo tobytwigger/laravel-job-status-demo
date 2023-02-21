@@ -60,13 +60,10 @@ class CreateJob extends Command
             cancel: $this->option('cancel'),
             messages: $this->option('messages')
         ) : new $job(sleep: $this->option('sleep'));
-        for($i = 0; $i<$this->option('count'); $i++) {
-            $dispatch = dispatch($generateJob());
-        }
 
-        if($this->option('delay')) {
-            $dispatch->delay($this->option('delay'));
-        }
+        $this->withProgressBar(range(1, $this->option('count')), fn() => dispatch($generateJob())
+                ->delay($this->option('delay') ? $this->option('delay') : 0)
+        );
 
         return Command::SUCCESS;
     }
